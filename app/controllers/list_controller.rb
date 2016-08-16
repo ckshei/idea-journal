@@ -1,8 +1,10 @@
+require 'pry'
 class ListController < ApplicationController
 
   get '/lists/:slug/edit' do
     redirect_login
     @list = List.find_by_slug(params[:slug])
+    
     current_user_owns_list
       erb :'/lists/edit'
   end
@@ -29,8 +31,8 @@ class ListController < ApplicationController
 
   helpers do
     def current_user_owns_list
-      if current_user.id != List.find_by(id: @list.user_id)
-        redirect '/'
+      if current_user.id != @list.user_id
+        redirect to '/'
       end
     end
   end

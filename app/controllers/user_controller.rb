@@ -32,11 +32,14 @@ get '/signup' do
   end
 
   post '/login' do
-    user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
+    if user = !User.find_by(username: params[:username])
+      flash[:message] = "There is no account associated with the username: #{params[:username]}"
+      redirect to '/'
+    elsif user && user.authenticate(params[:password])
       session[:id] = user.id
       redirect to '/main'
     else
+      flash[:message] = "The username - password combination is incorrect"
       redirect to '/'
     end
   end

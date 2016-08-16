@@ -1,4 +1,9 @@
+<% if flash.has?(:message) %>
+<p class="warning"> <%= flash[:message] %> </p>
+<% end %>
+
 <h1>Welcome to Idea Journal</h1>
+<div class="form">
 <form method="POST" action="/login">
   <div class="form-group">
     <label>Username:</label>
@@ -10,7 +15,7 @@
   </div>
     <input type="submit" value="Log In" class="btn btn-default">  
 </form>
-
+</div>
 <br><br>
 Dont have an account? <a href="/signup">Sign Up Now</a>
 

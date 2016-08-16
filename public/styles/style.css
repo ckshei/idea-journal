@@ -13,5 +13,19 @@ h1 {
 }
 
 h1,h2, strong {
-  color: #333;
+  color: #181419;
+}
+
+div.form {
+  background: #eee;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 25px;
+  border: 2px solid #181419;
+  padding: 20px;
+}
+
+p.warning {
+  color:  #9E0B41;
+  font-weight: bold;
 }

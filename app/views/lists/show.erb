@@ -1,0 +1,8 @@
+<%= @list.name %>
+
+<% @list.ideas.each do |idea| %>
+  Idea Name: <%= idea.name %>
+  Idea Content:<%= idea.content %>
+  <a href="/ideas/:id/edit">Edit Idea</a>
+<% end %>
+

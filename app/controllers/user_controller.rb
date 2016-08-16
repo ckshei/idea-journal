@@ -48,4 +48,9 @@ get '/signup' do
     session.clear
     redirect to '/'
   end
+
+  get '/lists/:slug' do
+    @list = List.find_by_slug(params[:slug])
+    erb :'/lists/show'
+  end
 end

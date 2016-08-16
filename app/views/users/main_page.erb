@@ -1,23 +1,19 @@
 <h1>Your Idea Journal</h1>
-=======
-<h1>Create Your New List for Your Personal Idea Journal</h1>
->>>>>>> tables
+<hr>
 
 <form method="post" action="/main">
+<h3>Create New List</h3>
 <label>List Name:</label>
 <input type="text" name="name"><br><br>
 <input type="hidden" name="user_id" value="<%= @current_user.id %>">
-<input type="submit" value="Save List">
+<input type="submit" value="Save List" class="btn btn-default">
 </form>
 
-<% @current_user.lists.each do |list| %>
-
-  List Name: <%= list.name %>
-  <br>
-
-  <a href="/lists/<%=list.id%>/edit">Edit List</a>
+<h3>Idea Lists: </h3>
+<% @current_user.lists.each_with_index do |list, i| %>
+  <a href="/lists/<%=list.slug%>"><%="#{i+1}."%> <%= list.name %></a>
 <% end %>
 
 <form method="POST" action="/logout">
-  <input type="submit" value="Log Out">
+  <input type="submit" value="Log Out" class="btn btn-default">
 </form>

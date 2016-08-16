@@ -24,4 +24,5 @@ class IdeaController < ApplicationController
       end
     end
   end
+  
 end

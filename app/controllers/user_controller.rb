@@ -32,7 +32,8 @@ get '/signup' do
   end
 
   post '/login' do
-    if user = !User.find_by(username: params[:username])
+    user = User.find_by(username: params[:username])
+    if !user
       flash[:message] = "There is no account associated with the username: #{params[:username]}"
       redirect to '/'
     elsif user && user.authenticate(params[:password])
@@ -49,8 +50,5 @@ get '/signup' do
     redirect to '/'
   end
 
-  get '/lists/:slug' do
-    @list = List.find_by_slug(params[:slug])
-    erb :'/lists/show'
-  end
+
 end

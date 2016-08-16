@@ -9,6 +9,6 @@ class IdeaController < ApplicationController
     @idea = Idea.find(params[:id])
     # binding.pry
     @idea.update(params[:idea])
-    redirect to '/main'
+    redirect to "/lists/#{List.find((@idea.list_id)).slug}"
   end
 end

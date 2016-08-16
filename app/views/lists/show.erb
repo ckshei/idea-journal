@@ -25,4 +25,8 @@
   <%= idea.updated_at %>
   <a href="/ideas/<%=idea.id%>/edit">Edit Idea</a>
 <% end %>
-
+<br><br>
+<a href='/main'>Back To Main Page</a>
+<form method="POST" action="/logout">
+  <input type="submit" value="Log Out" class="btn btn-default">
+</form>

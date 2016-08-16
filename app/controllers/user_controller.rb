@@ -1,4 +1,6 @@
+require 'rack-flash'
 class UserController < ApplicationController
+  use Rack::Flash
 
 get '/signup' do
     erb :'/users/signup'
@@ -6,8 +8,10 @@ get '/signup' do
 
   post '/signup' do
     if User.find_by(username: params[:username])
+      flash[:message] = "Username already taken"
       redirect to '/signup'
     elsif User.find_by(email: params[:email])
+      flash[:message] = "An account is already associated with that email address"
       redirect to '/signup'
     else 
       user = User.create(params)

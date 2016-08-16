@@ -5,9 +5,15 @@ get '/signup' do
   end
 
   post '/signup' do
-    user = User.create(params)
-    session[:id] = user.id
-    redirect to '/main'
+    if User.find_by(username: params[:username])
+      redirect to '/signup'
+    elsif User.find_by(email: params[:email])
+      redirect to '/signup'
+    else 
+      user = User.create(params)
+      session[:id] = user.id
+      redirect to '/main'
+    end
   end
 
   get '/main' do

@@ -8,7 +8,7 @@ get '/signup' do
 
   post '/signup' do
     if User.find_by(username: params[:username])
-      flash[:message] = "Username already taken"
+      flash[:message] = "Username already taken. Please try something else."
       redirect to '/signup'
     elsif User.find_by(email: params[:email])
       flash[:message] = "An account is already associated with that email address"
@@ -26,7 +26,7 @@ get '/signup' do
   end
 
   post '/main' do
-    idea = Idea.create(params)
+    list = List.create(params)
     current_user
     redirect to "/main"
   end

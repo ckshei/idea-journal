@@ -1,21 +1,18 @@
-<h1>Your Idea Journal</h1>
+<h1>Create Your New List for Your Personal Idea Journal</h1>
 
 <form method="post" action="/main">
-<label>Idea Name:</label>
+<label>List Name:</label>
 <input type="text" name="name"><br><br>
-<label>Idea Content:</label>
-<input type="text" name="content"><br><br>
 <input type="hidden" name="user_id" value="<%= @current_user.id %>">
-<input type="submit" value="Save Idea">
+<input type="submit" value="Save List">
 </form>
 
-<% @current_user.ideas.each do |idea| %>
+<% @current_user.lists.each do |list| %>
 
-  Idea Name: <%= idea.name %>
+  List Name: <%= list.name %>
   <br>
-  Idea Content: <%= idea.content %>
 
-  <a href="/ideas/<%=idea.id%>/edit">Edit Idea</a>
+  <a href="/lists/<%=list.id%>/edit">Edit List</a>
 <% end %>
 
 <form method="POST" action="/logout">

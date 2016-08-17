@@ -9,4 +9,8 @@ class List < ActiveRecord::Base
   def self.find_by_slug(slug_name)
     List.all.find { |name| name.slug == slug_name}
   end
+
+  def self.public_lists
+  	List.all.select { |list| !list.private? }
+  end
 end

@@ -1,18 +1,20 @@
 require 'pry'
 class ListController < ApplicationController
 
+  get '/lists' do
+    @lists = List.public_lists
+    erb :'/lists/index'
+  end
+
   get '/lists/:slug/edit' do
     redirect_login
     @list = List.find_by_slug(params[:slug])
-    
     current_user_owns_list
       erb :'/lists/edit'
   end
 
   patch '/lists/:slug/edit' do
-    redirect_login
     @list = List.find_by_slug(params[:slug])
-    current_user_owns_list
     @list.update(params[:list])
     redirect to "/lists/#{@list.slug}"
   end
@@ -24,7 +26,7 @@ class ListController < ApplicationController
   end
 
   post '/lists/:slug' do
-    redirect_login
+    binding.pry
     @idea = Idea.create(params[:idea])
     redirect to "/lists/#{params[:slug]}"
   end

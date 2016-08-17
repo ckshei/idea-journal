@@ -1,6 +1,4 @@
-<h1><%= @list.name %> (Private)</h1>
-<% if @list.private? %>
-
+<h1><%= @list.name %> <% if @list.private?%> (Private)</h1>
 <% end %>
  <a href="/lists/<%=@list.slug%>/edit">Edit</a>
 <hr>

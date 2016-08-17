@@ -2,8 +2,9 @@
 <p class="warning"> <%= flash[:message] %> </p>
 <% end %>
 
-<h1>Welcome to Idea Journal</h1>
+
 <div class="form">
+<h1>Welcome to Idea Journal</h1>
 <form method="POST" action="/login">
   <div class="form-group">
     <label>Username:</label>
@@ -13,9 +14,9 @@
     <label>Password:</label>
     <input type="password" name="password">
   </div>
+  <div class="form-group">
     <input type="submit" value="Log In" class="btn btn-default">  
+  </div>
+Dont have an account? <a href="/signup">Sign Up Now</a>
 </form>
 </div>
-<br><br>
-Dont have an account? <a href="/signup">Sign Up Now</a>
-

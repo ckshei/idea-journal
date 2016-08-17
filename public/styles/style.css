@@ -2,12 +2,15 @@ body {
   font-family: "Helvetica", "Arial", sans-serif;
   line-height: 1.5;
   padding: 4em 1em;
-  color: #555;
-
+  background: url(https://hd.unsplash.com/photo-1452423668729-43a98052d3ee) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 
-h1 {
+h2 {
   margin-top: 1em;
   padding-top: 1em;
 }
@@ -28,4 +31,42 @@ div.form {
 p.warning {
   color:  #9E0B41;
   font-weight: bold;
+}
+
+div.container {
+  background: #FFFFFF;
+  border-radius: 15px;
+  border: 2px solid #181419;
+  padding: 20px;
+}
+
+div.ideacontainer {
+  border: 1px solid #181419;
+  padding: 5px;
+  margin: 5px auto;
+  width: 50%;
+  border-radius: 5px;
+  position: relative;
+  
+}
+div.idea{
+  padding: 0px;
+}
+
+p.content {
+  margin-bottom: 0.3em;
+}
+
+p.title {
+  text-decoration: underline;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+p.date {
+  font-size: 0.65em;
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  margin: 0;
 }

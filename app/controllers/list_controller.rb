@@ -26,7 +26,6 @@ class ListController < ApplicationController
   end
 
   post '/lists/:slug' do
-    binding.pry
     @idea = Idea.create(params[:idea])
     redirect to "/lists/#{params[:slug]}"
   end
